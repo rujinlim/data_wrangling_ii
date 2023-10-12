@@ -1,0 +1,13 @@
+---
+title: "reading_data_from_the_web"
+author: "rl3411"
+date: "2023-10-12"
+output: github_document
+---
+
+```{r}
+library(tidyverse)
+library(rvest)
+library(httr)
+```
+
