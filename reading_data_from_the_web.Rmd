@@ -57,6 +57,15 @@ swm_gross_rev_vec =
   html_text()
 ```
 
+## APIs
+
+Get water data from NYC Open data
+
+```{r}
+nyc_water_df = 
+  GET("https://data.cityofnewyork.us/resource/ia2d-e54m.csv") |> 
+  content("parsed")
+```
 
 
 
