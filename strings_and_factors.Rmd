@@ -1,0 +1,99 @@
+---
+title: "Strings and factors"
+author: "rl3411"
+date: "2023-10-17"
+output: github_document
+---
+
+```{r}
+library(rvest)
+library(stringr)
+library(p8105.datasets)
+```
+
+## Strings and manipulations
+
+```{r}
+string_vec = c("my", "name", "is", "jeff")
+str_detect(string_vec, "jeff")
+str_detect(string_vec, "e")
+str_detect(string_vec, "Jeff") # case-sensitive
+
+str_replace(string_vec, "jeff", "Jeff Goldsmith")
+```
+
+```{r}
+string_vec = c(
+  "i think we all rule for participating",
+  "i think i have been caught",
+  "i think this will be quite fun actually",
+  "it will be fun, i think"
+  )
+
+str_detect(string_vec, "i think")
+str_detect(string_vec, "^i think") # specifying that it starts with "i think"
+str_detect(string_vec, "i think$") # ends with "i think"
+```
+
+```{r}
+string_vec = c(
+  "Time for a Pumpkin Spice Latte!",
+  "went to the #pumpkinpatch last weekend",
+  "Pumpkin Pie is obviously the best pie",
+  "SMASHING PUMPKINS -- LIVE IN CONCERT!!"
+  )
+
+str_detect(string_vec,"Pumpkin")
+str_detect(string_vec,"pumpkin")
+str_detect(string_vec,"[Pp]umpkin") # P or p works
+```
+
+```{r}
+string_vec = c(
+  '7th inning stretch',
+  '1st half soon to begin. Texas won the toss.',
+  'she is 5 feet 4 inches tall',
+  '3AM - cant sleep :('
+  )
+
+str_detect(string_vec, "[0-9]") # any instance matching a number
+str_detect(string_vec, "^[0-9]") # starting with a number
+str_detect(string_vec, "^[0-9][a-z]")
+str_detect(string_vec, "^[0-9][a-zA-Z]")
+```
+
+```{r}
+string_vec = c(
+  'Its 7:11 in the evening',
+  'want to go to 7-11?',
+  'my flight is AA711',
+  'NetBios: scanning ip 203.167.114.66',
+  'trial 7k11'
+  )
+
+str_detect(string_vec, "7.11") # . represents any character
+```
+
+```{r}
+string_vec = c(
+  'The CI is [2, 5]',
+  ':-]',
+  ':-[',
+  'I found the answer on pages [6-7]'
+  )
+
+str_detect(string_vec, "\\[")
+str_detect(string_vec, "[\\[\\]]") # open or close "[" "]"
+str_detect(string_vec, "\\[[0-9]")
+```
+
+
+
+
+
+
+
+
+
+
+
