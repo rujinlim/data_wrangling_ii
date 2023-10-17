@@ -6,6 +6,7 @@ rl3411
 ``` r
 library(rvest)
 library(stringr)
+library(forcats)
 library(p8105.datasets)
 ```
 
@@ -155,3 +156,36 @@ str_detect(string_vec, "\\[[0-9]")
 ```
 
     ## [1]  TRUE FALSE FALSE  TRUE
+
+## Factors
+
+``` r
+vec_sex = c("male", "male", "female", "female") # this is a string variable
+vec_sex = factor(c("male", "male", "female", "female")) # this is a factor variable
+vec_sex
+```
+
+    ## [1] male   male   female female
+    ## Levels: female male
+
+``` r
+as.numeric(vec_sex) # can only use this on factor variable
+```
+
+    ## [1] 2 2 1 1
+
+``` r
+vec_sex = fct_relevel(vec_sex, "male")
+vec_sex
+```
+
+    ## [1] male   male   female female
+    ## Levels: male female
+
+``` r
+as.numeric(vec_sex)
+```
+
+    ## [1] 1 1 2 2
+
+## NSDUH
